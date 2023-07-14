@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Acasa {% endblock %}
+{% block content %}
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold">TROPICAL STUDIO </h1>
+                    <p class="text-white font-weight-bold">Beauty Salon </p>
+                    <hr class="divider"/>
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 mb-5">COAFOR | COSMETICA | MANICHIURA | PEDICHIURA | MAKE-UP</p>
+                    <a class="btn btn-primary btn-xl" href="{% url 'rezervare' %}">Programeaza-te online</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About-->
+    <section class="page-section bg-primary" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-white mt-0">Despre noi</h2>
+                    <hr class="divider divider-light"/>
+                    <p class="text-white-75 mb-4">Bine ai venit in lumea TROPICAL STUDIO! Suntem un concept de beauty
+                        salon adaptat unui stil de viata modern, orientat spre a oferi tratamente profesionale de inalta
+                        calitate si de a te face sa te simti relaxat si binevenit in salonul nostru.
+
+                        Locul perfect de vizitat atunci cand ai nevoie de o sesiune de rasfat sau de o schimbare
+                        radicala de look, unde stilistii nostri, terapeutii de frumusete si tehnicienii estetici au
+                        fiecare ani de experienta in domeniile alese si sunt clasificati cu usurinta ca fiind experti in
+                        industrie.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mt-0"><b>De ce sa alegi TROPICAL STUDIO?</b></h2>
+            <hr class="divider"/>
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Profesionalism</h3>
+                        <p class="text-muted mb-0">Intotdeauna tinem cont de nevoile tale!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi bi-alarm fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Punctualitate</h3>
+                        <p class="text-muted mb-0">Respectam intocmai data si ora programarii!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi bi-emoji-heart-eyes fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Incredere</h3>
+                        <p class="text-muted mb-0">Te vom face sa ai incredere in sfaturile noastre!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Pasiune</h3>
+                        <p class="text-muted mb-0">Toata munca noastra este facuta cu dragoste!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio-->
+    <div id="portfolio">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{% static 'assets/img/portfolio/fullsize/1.jpg' %}"
+                       title="Project Name">
+                        <img class="img-fluid" src="{% static 'assets/img/portfolio/thumbnails/1.jpg' %}" alt="..."/>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{% static 'assets/img/portfolio/fullsize/2.jpg' %}"
+                       title="Project Name">
+                        <img class="img-fluid" src="{% static 'assets/img/portfolio/thumbnails/2.jpg' %}" alt="..."/>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{% static 'assets/img/portfolio/fullsize/3.jpg' %}"
+                       title="Project Name">
+                        <img class="img-fluid" src="{% static 'assets/img/portfolio/thumbnails/3.jpg' %}" alt="..."/>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{% static 'assets/img/portfolio/fullsize/4.jpg' %}"
+                       title="Project Name">
+                        <img class="img-fluid" src="{% static 'assets/img/portfolio/thumbnails/4.jpg' %}" alt="..."/>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{% static 'assets/img/portfolio/fullsize/5.jpg' %}"
+                       title="Project Name">
+                        <img class="img-fluid" src="{% static 'assets/img/portfolio/thumbnails/5.jpg' %}" alt="..."/>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{% static 'assets/img/portfolio/fullsize/6.jpg' %}"
+                       title="Project Name">
+                        <img class="img-fluid" src="{% static 'assets/img/portfolio/fullsize/6.jpg' %}" alt="..."/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact-->
+{#    <section class="page-section" id="contact">#}
+{#        <div class="container px-4 px-lg-5">#}
+{#            <div class="row gx-4 gx-lg-5 justify-content-center">#}
+{#                <div class="col-lg-8 col-xl-6 text-center">#}
+{#                    <h2 class="mt-0">Contacteaza-ne!</h2>#}
+{#                    <hr class="divider"/>#}
+{#                    <p class="text-muted mb-5">Ai vreo intrebare referitoare la serviciile noastre? Te rugam sa#}
+{#                        completezi formularul de mai jos si iti vom raspunde in cel mai scurt timp posibil.</p>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">#}
+{#                <div class="col-lg-6">#}
+{#                    <form method="post" id="contactForm">#}
+{#                        {% csrf_token %}#}
+{#                        <!-- Name input-->#}
+{#                        <div class="form-floating mb-3">#}
+{#                            <input class="form-control" id="name" type="text"#}
+{#                                   placeholder="Te rugam sa introduci numele si prenumele.."#}
+{#                                   data-sb-validations="required"/>#}
+{#                            <label for="name">Nume si prenume</label>#}
+{#                            <div class="invalid-feedback" data-sb-feedback="name:required">Numele este obligatoriu.#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <!-- Email address input-->#}
+{#                        <div class="form-floating mb-3">#}
+{#                            <input class="form-control" id="email" type="email" placeholder="name@example.com"#}
+{#                                   data-sb-validations="required,email"/>#}
+{#                            <label for="email">Adresa de e-mail</label>#}
+{#                            <div class="invalid-feedback" data-sb-feedback="email:required">Adresa de e-mail este#}
+{#                                obligatorie.#}
+{#                            </div>#}
+{#                            <div class="invalid-feedback" data-sb-feedback="email:email">E-mail invalid!</div>#}
+{#                        </div>#}
+{#                        <!-- Phone number input-->#}
+{#                        <div class="form-floating mb-3">#}
+{#                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"#}
+{#                                   data-sb-validations="required"/>#}
+{#                            <label for="phone">Numar de telefon</label>#}
+{#                            <div class="invalid-feedback" data-sb-feedback="phone:required">Numarul de telefon este#}
+{#                                obligatoriu.#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <!-- Message input-->#}
+{#                        <div class="form-floating mb-3">#}
+{#                            <textarea class="form-control" id="message" type="text" placeholder="Introdu mesajul tau.."#}
+{#                                      style="height: 10rem" data-sb-validations="required"></textarea>#}
+{#                            <label for="message">Mesaj</label>#}
+{#                            <div class="invalid-feedback" data-sb-feedback="message:required">Mesajul este#}
+{#                                obligatoriu.#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <!-- Submit Button-->#}
+{#                        <div class="d-grid">#}
+{#                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Trimite#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row gx-4 gx-lg-5 justify-content-center">#}
+{#                <div class="col-lg-4 text-center mb-5 mb-lg-0">#}
+{#                    <i class="bi-phone fs-2 mb-3 text-muted"></i>#}
+{#                    <div>+40 737 581 308</div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+
+{% endblock %}
+

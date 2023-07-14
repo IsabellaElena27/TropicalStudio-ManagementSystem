@@ -1,0 +1,74 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="{% url 'homepage' %}">TROPICAL STUDIO</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#about">Despre noi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+
+                {% if user.is_authenticated %}
+                    {# dropdown servicii #}
+                    {% if perms.services.add_service or perms.services.view_list_of_services %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Servicii
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if perms.services.add_service %}
+                                    <li><a class="dropdown-item" href="{% url 'creare-serviciu' %}"> Creaza un
+                                        nou serviciu</a></li>
+                                {% endif %}
+                                {% if perms.services.view_list_of_services %}
+                                    <li><a class="dropdown-item" href="{% url 'lista-servicii' %}"> Lista
+                                        servicii</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% endif %}
+
+                    {# dropdown angajati #}
+                    {% if perms.employee.add_employee or perms.employee.view_list_of_employees %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Angajati
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if perms.employee.add_employee %}
+                                    <li><a class="dropdown-item" href="{% url 'creare-angajat' %}"> Creaza un
+                                        nou angajat</a></li>
+                                {% endif %}
+                                {% if perms.employee.view_list_of_employees %}
+                                    <li><a class="dropdown-item" href="{% url 'lista-angajati' %}"> Lista
+                                        angajati</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% endif %}
+
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Bine ai venit, {{ user.username }} !
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'password_change' %}"> Schimba parola</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'creare-user' %}">Intregistreaza-te</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

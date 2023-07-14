@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %} Rezervare {% endblock %}
+
+{% block content %}
+    <form action="{% url 'rezervare-programare' %}" method="post" id="contactForm">
+    {% csrf_token %}
+    <section class="page-section" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Servicii</h2>
+                    <hr class="divider"/>
+                </div>
+            </div>
+        </div>
+            {% for service in all_services %}
+                <div class="row">
+                    <span class="col-md-1 offset-md-3">
+                        <input type="checkbox" name="{{ service.id }}" id="{{ service.id }}" value="{{ service.price }}"
+                               class="service-checkbox">
+                    </span>
+                    <span class="col-md-4">
+                        <h4 style="font-size: 17px"><b>{{ service.name_of_service }}</b></h4>
+                    </span>
+                    <span class="col-md-4">
+                        <p style="font-size: 15px"><b>{{ service.price }}</b> RON</p>
+                    </span>
+                </div>
+            {% endfor %}
+            <br>
+            <div style="text-align: center;">
+                <h3 id="total-price-display">Total: 0 RON</h3>
+{#                <a id="rezervaBtn" type="submit" class="btn btn-primary me-md-0" disabled role="button">Rezerva</a>#}
+
+                <button id="rezervaBtn" class="btn btn-primary me-md-0" disabled type="submit">Rezerva</button>
+            </div>
+    </section>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var checkboxes = document.getElementsByClassName('service-checkbox');
+            var totalPriceDisplay = document.getElementById('total-price-display');
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].addEventListener('change', function () {
+                    var totalPrice = 0;
+                    for (var j = 0; j < checkboxes.length; j++) {
+                        if (checkboxes[j].checked) {
+                            totalPrice += parseFloat(checkboxes[j].value);
+                        }
+                    }
+                    totalPriceDisplay.textContent = 'Total: ' + totalPrice.toFixed(2) + ' RON';
+                    if (totalPrice!=0){
+                    $("#rezervaBtn").removeAttr("disabled").button('refresh');
+                }
+                else{
+                    $("#rezervaBtn").attr("disabled","disabled").button('refresh');
+                }
+
+                });
+
+            }
+
+        });
+    </script>
+{% endblock %}
+
+
+
+
+

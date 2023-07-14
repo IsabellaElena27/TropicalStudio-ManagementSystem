@@ -1,0 +1,55 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %} Update serviciu {% endblock %}
+
+{% block content %}
+
+    <section class="page-section" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Update - {{ service.name_of_service }}</h2>
+                    <hr class="divider"/>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-4">
+                <form method="post" id="contactForm">
+                    {% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <div class="form-floating mb-3">
+                            {{ form.name_of_service }}
+                            <label for="{{ form.name_of_service.id_for_label }}">Numele serviciului</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">Prenumele este obligatoriu.
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            {{ form.price }}
+                            <label for="{{ formprice.id_for_label }}">Pret</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">Numele este obligatoriu.
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            {{ form.employee }}
+                            <label for="{{ form.employee.id_for_label }}">Angajat</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">Numele este obligatoriu.
+                            </div>
+                        </div>
+                        <div class="d-grid d-md-flex justify-content-md-center gap-3">
+                            <button class="btn btn-primary" id="submitButton" type="submit">Salveaza
+                            </button>
+                            <a href="{% url 'lista-servicii' %}" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %} Lista angajati {% endblock %}
+
+{% block content %}
+    <section class="page-section" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Lista angajati</h2>
+                    <hr class="divider"/>
+                </div>
+                <div class="col-md-9">
+                    {% if all_employees %}
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col"> Prenume</th>
+                                <th scope="col"> Nume</th>
+                                <th scope="col"> Functie</th>
+                                <th scope="col">Detalii</th>
+                                <th scope="col">Update</th>
+                                <th scope="col">Sterge</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for employee in all_employees %}
+                                <tr>
+                                    <td>{{ employee.first_name }}
+                                    </td>
+                                    <td>{{ employee.last_name }}
+                                    </td>
+                                    <td>{{ employee.description }}</td>
+                                    <td>
+                                        <a href="{% url 'detalii-angajat' employee.id %}" type="button"
+                                           class="btn btn-primary btn-sm">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="{% url 'update-angajat' employee.id %}" type="button"
+                                           class="btn btn-primary btn-sm">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    </td>
+                                    <td><a href="{% url 'stergere-angajat' employee.id %}" type="button"
+                                           class="btn btn-primary btn-sm">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <h3 class="text-center">Niciun angajat</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

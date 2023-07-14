@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Stergere serviciu {% endblock %}
+
+{% block content %}
+
+    <section class="page-section" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Stergere serviciu</h2>
+                    <hr class="divider"/>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <form method="post" id="contactForm" >
+                    {% csrf_token %}
+                    <div class="card-body text-center">
+                        <div class="card-header">
+                        <p>Esti sigur ca vrei sa stergi {{ service.name_of_service }}?</p>
+                    </div>
+                    </div>
+                    <div class="d-grid col-7 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary me-md-2" id="submitButton" type="submit">Da
+                        </button>
+                        <a href="{% url 'lista-servicii' %}" class="btn btn-danger">Nu</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
