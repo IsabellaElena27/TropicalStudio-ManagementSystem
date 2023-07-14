@@ -12,5 +12,5 @@ urlpatterns = [
     path('rezervare/', views.Rezervare.as_view(), name='rezervare'),
     path('rezervare/programare/', rezerva_servicii, name='rezervare-programare'),
     path('rezervare/selecteaza_data_ora/', selecteaza_data_ora, name='selecteaza-data-ora'),
-    path('rezervare/programare/succes/', views.RezervareProgramareView.as_view(), name='rezervare-programare-succes'),
+    path('rezervare/programare/succes/', selecteaza_data_ora, name='rezervare-programare-succes'),
 ]

@@ -42,6 +42,5 @@ class ServiceUpdateForm(forms.ModelForm):
 
 
 class SelectareDataOraForm(forms.Form):
-    date = forms.DateTimeField(label='Data și ora programării', widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}))
-    employee = forms.ModelChoiceField(label='Angajat', queryset=Employee.objects.all())
+    data_ora = forms.DateTimeField(label='Data și ora programării', widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}))
 

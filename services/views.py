@@ -79,10 +79,8 @@ def rezervare(request):
 def rezerva_servicii(request):
     if request.POST and request.user.is_authenticated:
         current_user_id = request.user.id
-
-        print(request.POST)
-
-        services_ids = [int(item) for item in dict(request.POST) if item != 'csrfmiddlewaretoken' and item != 'data_ora']
+        services_ids = [int(item) for item in dict(request.POST) if
+                        item != 'csrfmiddlewaretoken' and item != 'data_ora']
         date = request.POST.get('data_ora')
         for service_id in services_ids:
             service = Service.objects.get(id=service_id)
@@ -97,48 +95,30 @@ def rezerva_servicii(request):
     return HttpResponseRedirect(reverse("login"))
 
 
-
 class RezervareProgramareView(CreateView):
     template_name = 'services/rezervare_programare.html'
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['employees'] = Employee.objects.all()
         return context
 
-def selecteaza_data_ora(request):
-    if 'selected_services' not in request.session:
-        return redirect('rezervare')
 
-    if request.method == 'POST':
+
+def selecteaza_data_ora(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("login"))
+
+    if request.POST:
         form = SelectareDataOraForm(request.POST)
         if form.is_valid():
-            date = form.cleaned_data.get('date')
-
-            selected_services = request.session.get('selected_services', [])
-            current_user_id = request.user.id
-            for service_id in selected_services:
-                serviciu = RezervareServicii.objects.create(
-                    id_service_id=int(service_id),
-                    id_user=current_user_id,
-                    date=date
-                )
-                serviciu.save()
-
-            all_employees = Employee.objects.all()
-            return render(request, 'services/rezervare_programare.html', {'employees': all_employees})
+            date = form.cleaned_data.get('data_ora')
+            selected_services = RezervareServicii.objects.filter(id_user=request.user.id, status='draft')
+            for service in selected_services:
+                service.date = date
+                service.status = 'completed'
+                service.save()
+        return render(request, 'services/rezervare_programare_succes.html', {'form': form})
     else:
-        form = SelectareDataOraForm()
-
-    return render(request, 'services/rezervare_programare_succes.html', {'form': form})
-
-
-
-
-
-
-
-
-
-
+        all_employees = Employee.objects.all()
+        return render(request, 'services/rezervare_programare.html', {'employees': all_employees})
