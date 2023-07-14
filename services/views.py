@@ -93,7 +93,6 @@ class RezervareProgramareView(CreateView):
         return context
 
 
-
 # def selecteaza_data_ora(request):
 #     if not request.user.is_authenticated:
 #         return HttpResponseRedirect(reverse("login"))
@@ -112,9 +111,6 @@ class RezervareProgramareView(CreateView):
 #         all_employees = Employee.objects.all()
 #         return render(request, 'services/rezervare_programare.html', {'employees': all_employees})
 
-
-
-from django.shortcuts import redirect
 
 def selecteaza_data_ora(request):
     if not request.user.is_authenticated:
@@ -143,12 +139,10 @@ def selecteaza_data_ora(request):
         return render(request, 'services/rezervare_programare.html', {'employees': all_employees})
 
 
-
-
-
 def appointments_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
 
-    programari = RezervareServicii.objects.filter(id_user=request.user.id).select_related('id_service', 'id_service__employee')
+    programari = RezervareServicii.objects.filter(id_user=request.user.id).select_related('id_service',
+                                                                                          'id_service__employee')
     return render(request, 'services/appointments.html', {'programari': programari})
