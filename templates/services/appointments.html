@@ -1,18 +1,41 @@
-<!-- appointments.html -->
 {% extends 'base.html' %}
 
 {% block title %}Programările mele{% endblock %}
 
-{% block content %}
-<h1>Programările tale</h1>
 
-{% if programari %}
-    <ul>
-    {% for programare in programari %}
-        <li>{{ programare.date }} - {{ programare.id_service.name_of_service }} - {{ programare.id_service.employee }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>Nu ai nicio programare înregistrată.</p>
-{% endif %}
+{% block content %}
+    <section class="page-section" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Istoric programari</h2>
+                    <hr class="divider"/>
+                </div>
+                <div class="col-md-9">
+                    {% if programari %}
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Data si ora</th>
+                                <th scope="col">Serviciu</th>
+                                <th scope="col">Stilist</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for programare in programari %}
+                                <tr>
+                                    <td>{{ programare.date }}</td>
+                                    <td>{{ programare.id_service.name_of_service }}</td>
+                                    <td>{{ programare.id_service.employee }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <h3 class="text-center">Nu ai nicio programare inregistrata</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
