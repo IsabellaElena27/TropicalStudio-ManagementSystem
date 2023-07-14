@@ -8,7 +8,6 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link" href="#about">Despre noi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
 
                 {% if user.is_authenticated %}
                     {# dropdown servicii #}
@@ -60,6 +59,7 @@
                             Bine ai venit, {{ user.username }} !
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'programarile-mele' %}">Programarile mele</a></li>
                             <li><a class="dropdown-item" href="{% url 'password_change' %}"> Schimba parola</a></li>
                             <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                         </ul>

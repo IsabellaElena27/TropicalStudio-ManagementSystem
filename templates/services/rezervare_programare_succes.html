@@ -1,9 +1,60 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block title %} Confirmare programare {% endblock %}#}
+{##}
+{#{% block content %}#}
+{##}
+{#    <section class="page-section" id="contact">#}
+{#        <div class="container px-4 px-lg-5">#}
+{#            <div class="row gx-4 gx-lg-5 justify-content-center">#}
+{#                <div class="col-lg-8 col-xl-6 text-center">#}
+{#                    <h2 class="mt-0">Confirmare programare</h2>#}
+{#                    <hr class="divider"/>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">#}
+{#            <div class="col-lg-4">#}
+{##}
+{#                <h2>Felicitări! Aveți o programare pentru {{ service.name_of_service }}</h2>#}
+{#<p>La data și ora: {{ date }}</p>#}
+{#<p>Cu angajatul: {{ employee }}</p>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+{##}
+{#{% endblock %}#}
+
 {% extends 'base.html' %}
 
-{% block title %} Confirmare {% endblock %}
+{% block title %} Detalii serviciu {% endblock %}
 
 {% block content %}
 
-    <p>programare inregistrata</p>
+    <section class="page-section" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Confirmare programare </h2>
+                    <hr class="divider"/>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <div class="card text-center">
+                    <div class="card-header">
+                    <h4>Felicitari!<br> Programarea pentru {{ service.name_of_service }} a fost inregistrata cu succes!</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Data si ora programare: {{ date }}</h5>
+                        <p class="card-text">{{ employee }} va avea grija sa aveti parte de o experienta placuta!</p>
+                        <a href="{% url 'homepage' %}" class="btn btn-primary">Acasa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

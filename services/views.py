@@ -65,17 +65,6 @@ def rezervare(request):
     return render(request, 'services/rezervare.html', {'all_services': all_services})
 
 
-# def rezerva_servicii(request):
-#     if request.POST and request.user.is_authenticated:
-#         current_user_id = request.user.id
-#         services_ids = [int(item) for item in dict(request.POST) if item != 'csrfmiddlewaretoken' and item != 'data_ora']
-#         for service_id in services_ids:
-#             serviciu = RezervareServicii(id_service_id=service_id, id_user=current_user_id)
-#             serviciu.save()
-#         all_employees = Employee.objects.all()
-#         return render(request, 'services/rezervare_programare.html', {'employees': all_employees})
-#     return HttpResponseRedirect(reverse("login"))
-
 def rezerva_servicii(request):
     if request.POST and request.user.is_authenticated:
         current_user_id = request.user.id
@@ -105,6 +94,28 @@ class RezervareProgramareView(CreateView):
 
 
 
+# def selecteaza_data_ora(request):
+#     if not request.user.is_authenticated:
+#         return HttpResponseRedirect(reverse("login"))
+#
+#     if request.POST:
+#         form = SelectareDataOraForm(request.POST)
+#         if form.is_valid():
+#             date = form.cleaned_data.get('data_ora')
+#             selected_services = RezervareServicii.objects.filter(id_user=request.user.id, status='draft')
+#             for service in selected_services:
+#                 service.date = date
+#                 service.status = 'completed'
+#                 service.save()
+#         return render(request, 'services/rezervare_programare_succes.html', {'form': form})
+#     else:
+#         all_employees = Employee.objects.all()
+#         return render(request, 'services/rezervare_programare.html', {'employees': all_employees})
+
+
+
+from django.shortcuts import redirect
+
 def selecteaza_data_ora(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
@@ -118,7 +129,26 @@ def selecteaza_data_ora(request):
                 service.date = date
                 service.status = 'completed'
                 service.save()
-        return render(request, 'services/rezervare_programare_succes.html', {'form': form})
+
+            if selected_services:
+                service = selected_services[0].id_service
+                employee = service.employee
+                return render(request, 'services/rezervare_programare_succes.html',
+                              {'form': form, 'date': date, 'service': service, 'employee': employee})
+            else:
+                return redirect('rezervare')
+
     else:
         all_employees = Employee.objects.all()
         return render(request, 'services/rezervare_programare.html', {'employees': all_employees})
+
+
+
+
+
+def appointments_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("login"))
+
+    programari = RezervareServicii.objects.filter(id_user=request.user.id).select_related('id_service', 'id_service__employee')
+    return render(request, 'services/appointments.html', {'programari': programari})

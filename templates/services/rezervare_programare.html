@@ -1,3 +1,41 @@
+<style>
+    /* Exemplu de stilizare a calendarului */
+    .custom-calendar {
+        background-color: #4ecea3;
+        {#border: 1px solid #198754;#}
+        border-radius: 10px;
+        padding: 10px;
+
+    }
+
+    .custom-calendar label {
+        font-weight: bold;
+        color: #fcf7f7;
+        font-family: "Merriweather Sans";
+    }
+
+    .custom-calendar input[type="datetime-local"] {
+        border: 1px solid #aaa;
+        padding: 5px;
+        border-radius: 10px;
+        color: #198754;
+    }
+
+    .custom-calendar button {
+        background-color: #198754;
+        color: #4ecea3;
+        padding: 8px 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .custom-calendar button:hover {
+        background-color: #198754;
+    }
+</style>
+
+
 {% extends 'base.html' %}
 
 {% block title %} Rezervare {% endblock %}
@@ -9,16 +47,22 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">Servicii</h2>
+                        <h2 class="mt-0">Alege data si ora programarii</h2>
                         <hr class="divider"/>
                     </div>
                 </div>
             </div>
-            <div>
+            <br><br>
+            <div class="row gx-4 gx-lg-5 justify-content-center mb-5 ">
+                <div class="col-lg-3 text-center custom-calendar">
                 <label for="data_ora">Data și ora programării:</label>
+                    <br>
                 <input type="datetime-local" id="data_ora" name="data_ora" required>
+                </div>
             </div>
-            <button type="submit">Programare</button>
+            <div class="d-grid text-center justify-content-center">
+            <button type="submit" class="btn btn-primary me-md-0">Confirma</button>
+            </div>
         </section>
     </form>
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.urls import path
 
 from services import views
-from services.views import rezerva_servicii, selecteaza_data_ora
+from services.views import rezerva_servicii, selecteaza_data_ora, appointments_view
 
 urlpatterns = [
     path('creare_serviciu/', views.ServiceCreateView.as_view(), name='creare-serviciu'),
@@ -13,4 +13,5 @@ urlpatterns = [
     path('rezervare/programare/', rezerva_servicii, name='rezervare-programare'),
     path('rezervare/selecteaza_data_ora/', selecteaza_data_ora, name='selecteaza-data-ora'),
     path('rezervare/programare/succes/', selecteaza_data_ora, name='rezervare-programare-succes'),
+    path('programari/', appointments_view, name='programarile-mele')
 ]
