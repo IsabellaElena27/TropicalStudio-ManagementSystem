@@ -1,6 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.models import User
-from django.contrib.auth.views import PasswordChangeView
 from django.forms import TextInput, EmailInput
 
 
