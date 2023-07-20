@@ -5,11 +5,11 @@ TropicalStudio allows the user to schedule an appointment with a beauty parlor f
 It allows customers to schedule appointments online from any place just with a few clicks. This project also aids in management tasks like creating, updating, deleting services and employees.
 
 # Tools
-Python version -3.11 Version
-Programming Language Used -	Python Django Language
-IDE Tool - PyCharm
-Database - SQLite
-Frontend - Bootstrap5, HTML, CSS, JavaScript
+- Python version -3.11 Version
+- Programming Language Used -	Python Django Language
+- IDE Tool - PyCharm
+- Database - SQLite
+- Frontend - Bootstrap5, HTML, CSS, JavaScript
 
 
 # User Features - normal user
