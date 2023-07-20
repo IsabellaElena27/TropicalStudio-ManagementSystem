@@ -24,6 +24,8 @@
 
 # Future implementation
 - after booking an appointment the user will receive a confirmation e-mail with all details
+- blog section
+- online shop
 
 
 
