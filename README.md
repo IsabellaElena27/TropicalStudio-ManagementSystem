@@ -22,7 +22,7 @@
 - In Django admin I created a group named 'STAFF'. The admin can add users in this group and all of them have extra permissions
 - In navbar they will see another 2 sections 'Servicii'(Services) and 'Angajati'(Employees). They can apply CRUD method which means they can create, delete, update and view the details. Also, they can see the list of services and employees.
 
-# Future implementation
+# Future implementations
 - after booking an appointment the user will receive a confirmation e-mail with all details
 - blog section
 - online shop
