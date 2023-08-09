@@ -18,4 +18,4 @@ class UserCreateView(CreateView):
             new_user.last_name = new_user.last_name.title()
             new_user.save()
 
-        return redirect('homepage')
+        return redirect('login')

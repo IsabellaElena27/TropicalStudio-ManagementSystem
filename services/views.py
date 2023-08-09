@@ -67,7 +67,7 @@ def rezervare(request):
 
 
 def rezerva_servicii(request):
-    if request.POST and request.user.is_authenticated:  # verificam daca cererea este de timp POSt ai utilizatorul este autentificat
+    if request.POST and request.user.is_authenticated:  # verificam daca cererea este de tip POST ai utilizatorul este autentificat
         current_user_id = request.user.id  # preluam id-ul userului autentificat
         services_ids = [int(item) for item in dict(request.POST) if
                         item != 'csrfmiddlewaretoken' and item != 'data_ora']  # obtinem id-urile serviciilor selectate

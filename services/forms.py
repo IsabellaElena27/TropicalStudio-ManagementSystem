@@ -1,7 +1,5 @@
 from django import forms
 from django.forms import TextInput, Select
-
-from employee.models import Employee
 from services.models import Service
 
 
@@ -42,5 +40,5 @@ class ServiceUpdateForm(forms.ModelForm):
 
 
 class SelectareDataOraForm(forms.Form):
-    data_ora = forms.DateTimeField(label='Data și ora programării', widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}))
-
+    data_ora = forms.DateTimeField(label='Data și ora programării',
+                                   widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}))
