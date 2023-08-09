@@ -95,6 +95,7 @@ class RezervareProgramareView(CreateView):
     #     context = super().get_context_data(**kwargs)
     #     context['employees'] = Employee.objects.all()
     #     return context
+    #
 
 
 # def selecteaza_data_ora(request):
