@@ -2,7 +2,7 @@
 
 # Description
 - TropicalStudio allows the user to schedule an appointment with a beauty parlor for a specific date and time.
-- It allows customers to schedule appointments online from any place with just a few clicks. This project also aids in management tasks like creating, updating, deleting services and employees.
+- It allows customers to schedule online appointments from any place with just a few clicks. This project also aids in management tasks like creating, updating, deleting services and employees.
 
 # Tools
 - Python version -3.11 Version
